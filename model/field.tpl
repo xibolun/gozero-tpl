@@ -1,0 +1,1 @@
+{{.name}} {{if (or (eq .name "DeletedAt") (eq .name "Deleted"))}}gorm.DeletedAt{{else}}{{.type}}{{end}} {{.tag}} {{if .hasComment}}// {{.comment}}{{end}}

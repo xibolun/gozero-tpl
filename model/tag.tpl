@@ -1,0 +1,1 @@
+`gorm:"column:{{.field}}{{if eq .field "deleted_at"}};index{{end}}{{if eq .field "created"}};autoCreateTime{{end}}{{if eq .field "updated"}};autoUpdateTime{{end}}"`
