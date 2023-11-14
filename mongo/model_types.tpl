@@ -3,7 +3,7 @@ package model
 import (
     "time"
 
-	"github.com/globalsign/mgo/bson"
+	"go.mongodb.org/mongo-driver/bson"
 )
 
 type {{.Type}} struct{
