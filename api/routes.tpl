@@ -9,5 +9,5 @@ import (
 )
 
 func RegisterHandlers(server *rest.Server, serverCtx *svc.ServiceContext) {
-	{{.routesAdditions}}
+
 }
