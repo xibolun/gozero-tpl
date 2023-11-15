@@ -3,8 +3,8 @@ package {{.PkgName}}
 import (
     "net/http"
 
-    "gitlab.qiniu.io/qbox/eden/common/httpresp"
-    "gitlab.qiniu.io/qbox/eden/common/errorx"
+    "gitlab.qiniu.io/qbox/suez/common/httpresp"
+    "gitlab.qiniu.io/qbox/suez/common/errorx"
 
     "github.com/gin-gonic/gin"
     {{.ImportPackages}}
