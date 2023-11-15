@@ -4,6 +4,7 @@ import (
 	"flag"
 	"fmt"
 
+	"github.com/gin-gonic/gin"
 	{{.importPackages}}
 )
 
@@ -19,8 +20,9 @@ func main() {
 	server := rest.MustNewServer(c.RestConf)
 	defer server.Stop()
 
-	handler.RegisterHandlers(server, ctx)
+	r := gin.Default()
+    handler.RegisterHandlers(r, ctx)
 
 	fmt.Printf("Starting server at %s:%d...\n", c.Host, c.Port)
-	server.Start()
+	_ = r.Run(fmt.Sprintf("%s:%d", c.Host, c.Port))
 }

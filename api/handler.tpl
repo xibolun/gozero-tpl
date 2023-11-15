@@ -5,12 +5,16 @@ import (
 
     "gitlab.qiniu.io/qbox/eden/common/httpresp"
     "gitlab.qiniu.io/qbox/eden/common/errorx"
+
+    "github.com/gin-gonic/gin"
     {{.ImportPackages}}
     {{if .HasRequest}}"github.com/zeromicro/go-zero/rest/httpx"{{end}}
 )
 
-func {{.HandlerName}}(svcCtx *svc.ServiceContext) http.HandlerFunc {
-	return func(w http.ResponseWriter, r *http.Request) {
+func {{.HandlerName}}(svcCtx *svc.ServiceContext) gin.HandlerFunc {
+	return func(ctx *gin.Context) {
+		r := ctx.Request
+    	w := ctx.Writer
 		{{if .HasRequest}}var req types.{{.RequestType}}
 		if err := httpx.Parse(r, &req); err != nil {
 			httpresp.HttpErr(w, r, errorx.NewStatCodeError(http.StatusBadRequest, 2, err.Error()))

@@ -8,6 +8,6 @@ import (
 	{{.importPackages}}
 )
 
-func RegisterHandlers(server *rest.Server, serverCtx *svc.ServiceContext) {
+func RegisterHandlers(r *gin.RouterGroup,, serverCtx *svc.ServiceContext) {
 	{{.routesAdditions}}
 }
