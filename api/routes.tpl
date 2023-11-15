@@ -5,9 +5,9 @@ import (
 	"net/http"{{if .hasTimeout}}
 	"time"{{end}}
 
-	{{.importPackages}}
+	// {{.importPackages}}
 )
 
-func RegisterHandlers(server *rest.Server, serverCtx *svc.ServiceContext) {
-
-}
+// func RegisterHandlers(server *rest.Server, serverCtx *svc.ServiceContext) {
+//
+// }
