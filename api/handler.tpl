@@ -17,16 +17,16 @@ func {{.HandlerName}}(svcCtx *svc.ServiceContext) gin.HandlerFunc {
     	w := ctx.Writer
 		{{if .HasRequest}}var req types.{{.RequestType}}
 		if err := httpx.Parse(r, &req); err != nil {
-			httpresp.HttpErr(w, r, errorx.NewStatCodeError(http.StatusBadRequest, 2, err.Error()))
+			httpresp.Http400(ctx, err)
 			return
 		}
 
 		{{end}}l := {{.LogicName}}.New{{.LogicType}}(r.Context(), svcCtx)
 		{{if .HasResp}}resp, {{end}}err := l.{{.Call}}({{if .HasRequest}}&req{{end}})
 		{{if .HasResp}}
-		httpresp.Http(w, r, resp, err)
+		httpresp.Http(ctx, resp, err)
 		{{else}}
-		httpresp.Http(w, r, nil, err)
+		httpresp.Http(ctx, nil, err)
 		{{end}}
 	}
 }
