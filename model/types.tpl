@@ -2,7 +2,7 @@
 type (
 	{{.lowerStartCamelObject}}Model interface{
 		{{.method}}
-		Find(ctx context.Context, cond *{{.upperStartCamelObject}}Cond) (ret []*{{.upperStartCamelObject}}, err error)
+		Search(ctx context.Context, cond *{{.upperStartCamelObject}}Cond) (ret []*{{.upperStartCamelObject}}, count int64, err error)
 	}
 
 	default{{.upperStartCamelObject}}Model struct {
@@ -12,11 +12,5 @@ type (
 
 	{{.upperStartCamelObject}} struct {
 		{{.fields}}
-	}
-
-	{{.upperStartCamelObject}}Cond struct {
-		 Keyword string
-         Page int
-         PageSize int
 	}
 )

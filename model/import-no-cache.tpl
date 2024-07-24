@@ -1,6 +1,5 @@
 import (
 	"context"
-	"database/sql"
 	"strings"
 	{{if .time}}"time"{{end}}
 

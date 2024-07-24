@@ -23,6 +23,12 @@ type (
 	custom{{.upperStartCamelObject}}Model struct {
 		*default{{.upperStartCamelObject}}Model
 	}
+
+	{{.upperStartCamelObject}}Cond struct {
+		 Keyword string
+         Page int
+         Size int
+	}
 )
 {{ if or (.gormCreatedAt) (.gormUpdatedAt) }}
 func (s *{{.upperStartCamelObject}}) BeforeCreate(tx *gorm.DB) error {
@@ -50,4 +56,9 @@ func (m *default{{.upperStartCamelObject}}Model) customCacheKeys(data *{{.upperS
         return []string{}
     }
 	return []string{}
+}
+
+func (cond *{{.upperStartCamelObject}}Cond) generateCond(db *gorm.DB) *gorm.DB {
+	cond.Page = (cond.Page - 1) * cond.Size
+	return db
 }
