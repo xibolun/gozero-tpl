@@ -3,11 +3,11 @@ package {{.PkgName}}
 import (
 	"net/http"
 
-	"gitlab.qiniu.io/qbox/eden/cmd/sinai/3rd/outside/logic/third"
-	"gitlab.qiniu.io/qbox/eden/cmd/sinai/3rd/outside/types"
-	"gitlab.qiniu.io/qbox/eden/cmd/sinai/internal/svc"
-	"gitlab.qiniu.io/qbox/eden/common/errorx"
-	"gitlab.qiniu.io/qbox/eden/common/httpresp"
+	"gitlab.qiniu.io/qbox/eden/cmd/demo/3rd/outside/logic/third"
+	"gitlab.qiniu.io/qbox/eden/cmd/demo/3rd/outside/types"
+	"gitlab.qiniu.io/qbox/eden/cmd/demo/internal/svc"
+	"gitlab.qiniu.io/devops/demo/common/errorx"
+	"gitlab.qiniu.io/devops/demo/common/httpresp"
 
 	"github.com/zeromicro/go-zero/rest/httpx"
 )

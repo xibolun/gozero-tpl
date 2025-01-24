@@ -18,8 +18,8 @@ type {{.Type}} struct{
 type {{.Type}}Cond struct{
 	// todo: complete your model query cond properties at below
 	Key  string `bson:"key"`
-	Size int64
-	Page int64
+	Size int
+	Page int
 }
 
 func (c *{{.Type}}Cond) generateCond() bson.M {

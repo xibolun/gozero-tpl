@@ -4,8 +4,8 @@ package handler
 import (
 	"net/http"
 
-	third "gitlab.qiniu.io/qbox/eden/cmd/sinai/3rd/outside/handler/third"
-	"gitlab.qiniu.io/qbox/eden/cmd/sinai/internal/svc"
+	third "gitlab.qiniu.io/qbox/eden/cmd/demo/3rd/outside/handler/third"
+	"gitlab.qiniu.io/qbox/eden/cmd/demo/internal/svc"
 
 	"github.com/zeromicro/go-zero/rest"
 )

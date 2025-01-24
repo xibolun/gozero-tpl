@@ -3,8 +3,8 @@ package {{.pkgName}}
 import (
 	"context"
 
-	"gitlab.qiniu.io/qbox/eden/cmd/sinai/3rd/outside/types"
-	"gitlab.qiniu.io/qbox/eden/cmd/sinai/internal/svc"
+	"gitlab.qiniu.io/qbox/eden/cmd/demo/3rd/outside/types"
+	"gitlab.qiniu.io/qbox/eden/cmd/demo/internal/svc"
 
 	"github.com/zeromicro/go-zero/core/logx"
 )

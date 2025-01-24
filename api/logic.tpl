@@ -33,6 +33,8 @@ func (l *{{.logic}}) {{.function}}({{.request}}) {{.responseType}} {
         return
     }
     _ = copier.Copy(data, req)
+    userInfo, _ := auth.FromContext(l.ctx)
+    data.Creator = userInfo.Username
 
     if err = l.svcCtx.{{.model}}.Update(l.ctx, data); err != nil {
         err = errorx.ErrorDB(err)
@@ -41,6 +43,8 @@ func (l *{{.logic}}) {{.function}}({{.request}}) {{.responseType}} {
     return
     {{else if  eq "post" .method}}data := &model.{{.model}}{}
     _ = copier.Copy(data, req)
+    userInfo, _ := auth.FromContext(l.ctx)
+    data.Creator = userInfo.Username
 
     if err = l.svcCtx.{{.model}}.Insert(l.ctx, data); err != nil {
         err = errorx.ErrorDB(err)
@@ -66,6 +70,8 @@ func (l *{{.logic}}) {{.function}}({{.request}}) {{.responseType}} {
     for _, data := range mData {
         item := &types.{{.model}}{}
         _ = copier.Copy(item, data)
+        item.Created = helper.GetLocalTime(data.Created)
+        item.Updated = helper.GetLocalTime(data.Updated)
         resp.Items = append(resp.Items, item)
     }
     return
@@ -78,6 +84,8 @@ func (l *{{.logic}}) {{.function}}({{.request}}) {{.responseType}} {
 
 	resp = &types.{{.model}}{}
 	_ = copier.Copy(resp, data)
+	resp.Created = helper.GetLocalTime(data.Created)
+    resp.Updated = helper.GetLocalTime(data.Updated)
 
 	return
 	{{end}}

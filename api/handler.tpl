@@ -3,8 +3,8 @@ package {{.PkgName}}
 import (
     "net/http"
 
-    "gitlab.qiniu.io/qbox/eden/common/httpresp"
-    "gitlab.qiniu.io/qbox/eden/common/errorx"
+    "github.com/kuma/common/httpresp"
+    "github.com/kuma/common/errorx"
     {{.ImportPackages}}
     {{if .HasRequest}}"github.com/zeromicro/go-zero/rest/httpx"{{end}}
 )
